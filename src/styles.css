@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+.grd1{
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+	color: white;
+}
+.w3-golge-1{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.w3-golge-2{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.w3-golge-3{
+	  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.grd{
+	background: #ffb347;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.w3-back1{
+    background: #00B4DB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+.w3-break{
+        word-wrap:break-word;
+        white-space: normal;
+}
+.circle {
+	padding:0px;
+	font-size:1em;
+	line-height:90px;
+	font-weight:900;
+	text-align:center;
+	cursor:pointer;
+	display:inline-block;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.no_pointer {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	cursor:default;
+}
+.w3-animate-renk{
+	-webkit-animation: bounce 2s infinite ease;
+	-moz-animation: bounce 2s infinite ease;
+	-ms-animation: bounce 2s infinite ease;
+	-o-animation: bounce 2s infinite ease;
+	animation: bounce 2s infinite ease;
+}
+.w3-hide{display:none!important;}
+.w3-inline{
+	display:inline-block!important;
+}
+.w3-ara{
+	min-width:180px!important;
+	max-width:255px!important;
+	width:70%!important;
+	display:inline-block!important;
+}
+.w3-float-1{float:right!important;}
+.w3-float-2{float:left!important;}
+.w3-margin-1{margin:2px!important;}
+.w3-margin-2{margin:4px!important;}
+.w3-margin-3{margin:8px!important;}
+.w3-margin-4{margin:10px!important;}
+.w3-margin-5{margin:12px!important;}
+.w3-padding-1{padding:2px!important;}
+.w3-padding-2{padding:4px!important;}
+.w3-padding-3{padding:8px!important;}
+.w3-padding-4{padding:10px!important;}
+.w3-padding-5{padding:12px!important;}
+.w3-padding {padding:12px!important;}
+.w3-margin {margin:12px!important;}
+.w3-cursor-default:hover{cursor:default;}
+.w3-cursor-pointer:hover{cursor:pointer;}
+html,body{
+	font-family: "Arial", "Helvetica", "sans-serif";
+	-webkit-font-smoothing: antialiased;
+}
+input.form-control{
+    display:inline-block!important;
+    width: auto!important;
+    flex: none !important;
+}
+.input-group{
+    justify-content: center;
+    margin:0px;
+    padding:0px;
+}
+.floatBtn{
+    display:inline-block;
+    text-align: center;
+    cursor:pointer;
+    position: absolute;
+   right:20px;top:75vh;
+    z-index: 2555;
+    color:black;
+    background: #00B4DB;
+    border-radius: 100%;
+    box-shadow: 1px 1px black;
+    font-size:16pt;font-weight: 600;
+    padding:6px;line-height: 60px;
+    height:80px;width:80px;
+}
+
+.slimModalParent{
+    height: 100%;width: 100%;
+    display: block;position: fixed;top: 0;left: 0;z-index: 90;
+    background: rgba(55, 55, 55, 0.281);
+}
+.slimModal{
+    border:2px teal;background: #cce1e8;
+    position: fixed;top: 15vh;margin: auto;left: 0;right: 0;
+    box-shadow: 1px 1px 2px 2px black;
+}
