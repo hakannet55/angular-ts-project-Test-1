@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListelemeComponent } from './listeleme/listeleme.component';
 import { GosterDetayComponent } from './goster-detay/goster-detay.component';
-
+import { AgGridModule } from 'ag-grid-angular';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
   declarations: [AppComponent,
     ListelemeComponent,
     GosterDetayComponent
   ],
-  imports: [FormsModule,
+  imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule
+    AppRoutingModule,ReactiveFormsModule,
+    AgGridModule.withComponents([AppComponent]),
+    HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]

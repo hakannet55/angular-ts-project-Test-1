@@ -14,7 +14,11 @@ export class ListelemeComponent implements OnInit {
   myapp: MyAppModel;
   showEkleBtn: boolean;
   constructor() { }
-
+  columnDefs = [
+    {headerName: 'Ürün', field: 'urun' ,sortable: true, filter: true},
+    {headerName: 'Fiyat', field: 'fiyat',sortable: true, filter: true },
+    {headerName: 'time', field: 'time'}
+  ];
   ngOnInit() {
     let myapp = new MyAppModel("MyAppName-1");
     this.data = myapp.data;
@@ -37,7 +41,7 @@ export class ListelemeComponent implements OnInit {
     let term = "t";
     this.data = this.dataCopy.filter(function(tag) {
         return tag.name.indexOf(term) >= 0;
-    }); 
+    });
   }
 
   ekleNew(target){

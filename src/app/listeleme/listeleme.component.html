@@ -1,5 +1,5 @@
 <div class="w3-light-grey align-items-center w3-round-xlarge w3-golge-2"
-style="max-width:390px;border-top:5px solid blue;margin-top:30px;padding: 10px;">
+style="border-top:5px solid blue;margin-top:30px;padding: 10px;">
     <h3 class="p-3">{{ title }}</h3>
     <div class="input-group m-2 p-2"> 
         <input type="text" class="form-control" id='targetSearch' (ngModelChange)="filterItem('#targetSearch')" />
@@ -7,31 +7,22 @@ style="max-width:390px;border-top:5px solid blue;margin-top:30px;padding: 10px;"
             <div class="sfe45 btn btn-primary w3-golge-1">Ara</div>
         </div>
     </div>
-    <table class="bg-white table table-hover table-striped table-hover table-responsive">
-        <thead><tr><th>id</th><th>ürün</th><th>fiyat</th><th>alındı</th><th>time</th></tr></thead>
-        <tbody>
-            <ng-container *ngFor="let item of data; let i=index">
-            <tr data-id="{{ item.id }}">
-                <td>{{ (i+1) }}</td>
-                <ng-container *ngFor="let val of obj_toArray(item)">
-                        <td *ngIf="val.key !='id'">
-                            <a *ngIf="val.key =='urun'" [routerLink]="['/detay', item.id]">{{ val.value }}</a>
-                            <ng-container *ngIf="val.key !=='urun'">{{ val.value }}</ng-container>
-                        </td>
-                </ng-container>
-            </tr>
-            </ng-container>
-        </tbody>
-    </table>
+    <ag-grid-angular
+    style="width: 500px; height: 500px;" 
+    class="ag-theme-balham"
+    [rowData]="data" 
+    [columnDefs]="columnDefs"
+    >
+    </ag-grid-angular>
     </div>
-<div *ngIf="showEkleBtn == false" class="floatBtn bg-blue" (click)="showEkleBtn=toggle(showEkleBtn)">Ekle</div>
+<div *ngIf="showEkleBtn == false" class="rubberBand floatBtn bg-blue" (click)="showEkleBtn=toggle(showEkleBtn)">Ekle</div>
 
-<div *ngIf="showEkleBtn == true" class="slimModalParent">
+<div *ngIf="showEkleBtn == true" class="slimModalParent w3-animation-bottom">
     <div class="slimModal w3-animate-bottom p-5 m-2 w3-round-large w3-golge-2">
         <div (click)="showEkleBtn=toggle(showEkleBtn)" class="w3-float-1 btn btn-danger w3-hover-opacity">X</div>
         <div>Yeni Ekle!</div>
         <div class="row">
-           <table id="newdata-target"  ><tbody>
+           <table id="newdata-target" ><tbody>
                <ng-container *ngFor="let item of obj_toArray(data[0])">
                     <tr><td>{{ item.key }}</td><td><input #sffff34 class="form-control m-1 ipt" type="text"></td></tr>
                </ng-container>
