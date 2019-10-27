@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../model';
 import { element, by } from 'protractor';
 import { GetdataService } from '../services/getdata.service';
-import { interval } from 'rxjs';
+import { interval, Subscription, empty } from 'rxjs';
+import { isArray } from 'util';
 
 @Component({
   selector: 'app-listeleme',
@@ -13,7 +14,9 @@ export class ListelemeComponent implements OnInit {
   dataCopy: Array<any>;
   title: "MyAppName-1";
   data: Product[];
-  showEkleBtn: boolean;
+  dataEkleme_heads: Array<any>;
+  showEkleBtn: boolean=false;
+  private updateSubscription: Subscription;
   constructor(
     private gtdServices:GetdataService
   ) {}
@@ -23,9 +26,17 @@ export class ListelemeComponent implements OnInit {
     {headerName: 'Alındı', field: 'tamam'}
   ];
   ngOnInit() {
-    this.gtdServices.getDatas().subscribe(data=>{
-      this.data=data;
-    });
+    this.updateSubscription = interval(2000)
+    .subscribe((val) => {
+          this.gtdServices.getDatas().subscribe(val=> {
+              if(isArray(this.dataEkleme_heads) == false){
+                this.dataEkleme_heads=this.obj_toArray(val[0]);
+              }
+            this.data=val;
+            
+          })
+      });
+    
   }
 
   obj_toArray(value){
@@ -52,20 +63,21 @@ export class ListelemeComponent implements OnInit {
     [].forEach.call( elArr,function (ctl) {
       ary.push(ctl.value);
     });
-    let obj=Product;
+    let obj:Array<any>;let val:string;
     let ar_keys=this.obj_toArray(this.data[0]);
     let empty_control="";
     //array degerini otomatik mevcut data objesindeki şablondaki anahtar kelimeler(keyname) e göre doldur.
     for(let i=0; i < ary.length;i++){
-      let val=ary[i];
+      val=ary[i];
       let key=ar_keys[i].key;
       if(val.length < 2 && empty_control == ""){empty_control=key;}
-      obj[ key ] = val ;
+      obj.push(val);
     }
     if(empty_control !==""){
       alert("boş-alan: "+ empty_control);
       return false;
     }
+    this.gtdServices.sendAddData(obj);
     //doldurulan yeni array obje data ya ilave et
     //this.data.push(obj);
     //alert(controls);

@@ -17,13 +17,13 @@ style="border-top:5px solid blue;margin-top:30px;padding: 10px;">
     </div>
 <div *ngIf="showEkleBtn == false" class="rubberBand floatBtn bg-blue" (click)="showEkleBtn=toggle(showEkleBtn)">Ekle</div>
 
-<div *ngIf="showEkleBtn == true" class="slimModalParent w3-animation-bottom">
-    <div class="slimModal w3-animate-bottom p-5 m-2 w3-round-large w3-golge-2">
+<div *ngIf="showEkleBtn == true" class="slimModalParent">
+    <div class="slimModal p-5 m-2 w3-round-large w3-golge-2 w3-animate-right">
         <div (click)="showEkleBtn=toggle(showEkleBtn)" class="w3-float-1 btn btn-danger w3-hover-opacity">X</div>
         <div>Yeni Ekle!</div>
-        <div class="row">
+        <div class="row w3-white w3-padding-2 w3-round-large w3-golge-1">
            <table id="newdata-target" ><tbody>
-               <ng-container *ngFor="let item of obj_toArray(data[0])">
+               <ng-container *ngFor="let item of dataEkleme_heads">
                     <tr><td>{{ item.key }}</td><td><input #sffff34 class="form-control m-1 ipt" type="text"></td></tr>
                </ng-container>
             </tbody></table>
