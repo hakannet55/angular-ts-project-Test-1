@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListelemeComponent } from './listeleme/listeleme.component';
 import { GosterDetayComponent } from './goster-detay/goster-detay.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent,
@@ -16,9 +16,9 @@ import { HttpClient } from 'selenium-webdriver/http';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,
+    AppRoutingModule, ReactiveFormsModule,
     AgGridModule.withComponents([AppComponent]),
-    HttpClient
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
