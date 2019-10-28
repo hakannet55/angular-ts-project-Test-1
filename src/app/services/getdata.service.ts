@@ -6,7 +6,7 @@ import { Observable,BehaviorSubject, Subscription, interval } from 'rxjs';
 @Injectable()
 export class GetdataService implements OnInit {
   path = "http://localhost/api/";
-  
+  public araText:String="";
   private data= new BehaviorSubject<Product[]>(null);
   public dataProduct: Product[];
   cast = this.data.asObservable();
@@ -15,17 +15,19 @@ export class GetdataService implements OnInit {
 
   getDatas():Observable<Product[]>{
     return this.http
-    .get<Product[]>(this.path);
+    .get<Product[]>(this.path+"?read=1");
   };
 
   sendAddData(data:Array<any>){
-    const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    let body = new HttpParams();
-    body = body.set('data', JSON.stringify(data));
+    const myheader = new HttpHeaders();
+    let body = new HttpParams()
+    .set('addSave', "1")
+    .set('data',JSON.stringify(data));
     this.http
-    .post<String>(this.path,body,{headers:myheader}).subscribe(val=>{
+    .post<String>(this.path+"?addSave=1",body,{headers:myheader}).subscribe(val=>{
       //if(val !=="ok"){return "hata";}
-      return val;
+      console.log("dat:"+val);
+      this.getDatas();
     });
   }
 
