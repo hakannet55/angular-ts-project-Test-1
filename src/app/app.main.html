@@ -1,6 +1,14 @@
-<div class="nav w3-amber shadow-sm text-black-50 p-2">
-        Test AppComponent
-</div>
+<mat-toolbar class="w3-amber">
+  <mat-toolbar-row>
+  <span>My Application</span>
+  <span class="spacer"></span>
+  <div class="w3-float-1">
+          <button mat-raised-button (click)="modal_ac('dialo-test-1','example contents hakannet55<br>line-2<br>--sd')" >OpenDialog</button>
+  </div>
+  <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+  <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
 <div class="container">
 <div class="row justify-content-center w3-animate-left" >
         <router-outlet></router-outlet>

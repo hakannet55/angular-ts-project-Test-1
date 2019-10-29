@@ -1,0 +1,15 @@
+<main role='main'>xx</main>
+<div>Yeni Ekle!</div>
+<div class="w3-white w3-padding-3 w3-margin-top w3-round-large w3-golge-1">
+    <form class="example-container" [formGroup]="options">
+        <mat-checkbox formControlName="hideRequired">Hide required marker</mat-checkbox>
+        <div>
+          <label>Float label: </label>
+          <mat-radio-group formControlName="floatLabel">
+            <mat-radio-button value="auto">Auto</mat-radio-button>
+            <mat-radio-button value="always">Always</mat-radio-button>
+            <mat-radio-button value="never">Never</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </form>
+</div>

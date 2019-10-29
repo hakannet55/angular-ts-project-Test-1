@@ -3,9 +3,12 @@
 style="border-top:5px solid blue;margin-top:30px;padding: 10px;">
     <h3 class="p-3">{{ title }}</h3>
     <div class="input-group m-2 p-2"> 
-        <input type="text" class="form-control" id='targetSearch' (keyup)="filterItem($event)" />
-        <div class="input-group-append">
-            <div class="sfe45 btn btn-primary w3-golge-1">Ara</div>
+        <input type="text" class="form-control" id='targetSearch' [(ngModel)]="araText" (keyup)="filterItem($event)" />
+        <div *ngIf="!araText" class="input-group-append">
+            <div class="sftb btn btn-primary w3-golge-1">Ara</div>
+        </div>
+        <div *ngIf="araText" class="input-group-append">
+            <div (click)="araText=''" class="btn w3-text-red w3-golge-1">X</div>
         </div>
     </div>
     <ag-grid-angular
@@ -16,23 +19,13 @@ style="border-top:5px solid blue;margin-top:30px;padding: 10px;">
     >
     </ag-grid-angular>
     </div>
-    <button mat-raised-button (click)="modal_ac('dialo-test-1','example contents hakannet55<br>line-2<br>--sd')" >OpenDialog</button>
+    
 <div *ngIf="showEkleBtn == false" class="rubberBand floatBtn bg-blue" (click)="showEkleBtn=toggle(showEkleBtn)">Ekle</div>
 
 <div *ngIf="showEkleBtn == true" class="slimModalParent">
     <div class="slimModal p-2 m-3 w3-round-large w3-golge-2 w3-animate-right">
         <div (click)="showEkleBtn=toggle(showEkleBtn)" class="w3-float-1 btn btn-danger w3-hover-opacity">X</div>
-        <div>Yeni Ekle!</div>
-        <div class="w3-white w3-padding-3 w3-margin-top w3-round-large w3-golge-1">
-           <table id="newdata-target" ><tbody>
-               <ng-container *ngFor="let item of dataEkleme_heads">
-                    <tr><td>{{ item.key }}</td><td><input #sffff34 class="form-control m-1 ipt" type="text"></td></tr>
-               </ng-container>
-            </tbody></table>
-            <div class="container p-4">
-                <span (click)="ekleNew( '#newdata-target .ipt' )"  class="w3-btn btn-primary w3-golge-2 m-1">Ekle</span>
-            </div>
-        </div>
+        <add-new-form></add-new-form>
     </div>
 </div>
 

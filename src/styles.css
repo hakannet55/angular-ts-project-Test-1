@@ -129,9 +129,9 @@ input.form-control{
     background: rgba(55, 55, 55, 0.281);
 }
 .slimModal{
-    border:2px teal;background: #cce1e8;
+    background: whitesmoke;
     position: fixed;top: 15vh;margin: auto;left: 0;right: 0;
-    box-shadow: 1px 1px 2px 2px black;
+    box-shadow: 3px 4px 5px 0px #525252;
 }
 .pulse:hover {
 -webkit-animation-name: pulse;
@@ -240,5 +240,12 @@ transform: scale3d(1, 1, 1);
 
 @import 'ag-grid-community/dist/styles/ag-grid.css';
 @import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.spacer{
+    flex: 1 1 auto!important;
+}
+.btn{
+    cursor:pointer;
+}

@@ -4,9 +4,7 @@ import { element, by } from 'protractor';
 import { GetdataService } from '../services/getdata.service';
 import { interval, Subscription, empty } from 'rxjs';
 import { isArray } from 'util';
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { modal_ac } from '../dialogs/modal_ac';
-import { dialog1 } from '../dialogs/dialog1';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-listeleme',
@@ -15,6 +13,7 @@ import { dialog1 } from '../dialogs/dialog1';
   providers: [GetdataService]
 })
 export class ListelemeComponent implements OnInit {
+  araText:string="";
   content: string;
   dataCopy: Array<any>;
   title: "MyAppName-1";
@@ -23,8 +22,7 @@ export class ListelemeComponent implements OnInit {
   showEkleBtn: boolean = false;
   private updateSubscription: Subscription;
   constructor(
-    private gtdServices: GetdataService,
-    public dialog: MatDialog
+    private gtdServices: GetdataService
   ) { }
   columnDefs = [
     { headerName: 'Ürün-id', field: 'id', sortable: true, filter: true },
@@ -39,7 +37,7 @@ export class ListelemeComponent implements OnInit {
           if (isArray(this.dataEkleme_heads) == false) {
             this.dataEkleme_heads = this.obj_toArray(val[0]);
           }
-          if (this.gtdServices.araText == "") {
+          if (this.araText == "") {
             //do not update ara
             this.data = val
           }
@@ -61,7 +59,7 @@ export class ListelemeComponent implements OnInit {
 
   filterItem(target) {
     const valStr = target.target.value;
-    this.gtdServices.araText = valStr;
+    this.araText = valStr;
     this.data = this.data.filter(val => val.name.indexOf(valStr) !== -1);
   }
 
@@ -92,12 +90,6 @@ export class ListelemeComponent implements OnInit {
     //doldurulan yeni array obje data ya ilave et
     //this.data.push(obj);
     //alert(controls);
-  }
-  modal_ac(title: String, content: String) {
-    this.dialog.open(
-      dialog1,
-      {data:{"title":title,"content":content}}
-    );
   }
 
 }

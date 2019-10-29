@@ -6,7 +6,6 @@ import { Observable,BehaviorSubject, Subscription, interval } from 'rxjs';
 @Injectable()
 export class GetdataService implements OnInit {
   path = "http://localhost/api/";
-  public araText:String="";
   private data= new BehaviorSubject<Product[]>(null);
   public dataProduct: Product[];
   cast = this.data.asObservable();
