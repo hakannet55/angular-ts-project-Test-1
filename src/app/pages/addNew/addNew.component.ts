@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Form} from '@angular/forms';
+import { FormBuilder, FormGroup, Form } from '@angular/forms';
+
 
 @Component({
   selector: 'add-new-form',

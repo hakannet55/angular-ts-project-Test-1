@@ -1,7 +1,10 @@
-<main role='main'>xx</main>
+<main role='main'>
 <div>Yeni Ekle!</div>
 <div class="w3-white w3-padding-3 w3-margin-top w3-round-large w3-golge-1">
     <form class="example-container" [formGroup]="options">
+      <label>
+          <input matInput placeholder="Simple placeholder" required>
+      </label>
         <mat-checkbox formControlName="hideRequired">Hide required marker</mat-checkbox>
         <div>
           <label>Float label: </label>
@@ -11,5 +14,22 @@
             <mat-radio-button value="never">Never</mat-radio-button>
           </mat-radio-group>
         </div>
+
+        <mat-button-toggle ripple disable-animation #chkBtn>matBTN TOGGLE</mat-button-toggle>
+        <span class='w3-btn'>{{ chkBtn.checked }}</span><br>
+
+        <mat-button-toggle-group  #matbtnTgl='matButtonToggleGroup' >
+          <mat-button-toggle value='Matematik'>mat</mat-button-toggle>
+          <mat-button-toggle value='Matematik22'>mat22</mat-button-toggle>
+        </mat-button-toggle-group>
+        <h3 class='bg-gray text-danger'>{{matbtnTgl.value}}</h3>
+
+      <mat-form-field
+        [hideRequiredMarker]="options.value.hideRequired"
+        [floatLabel]="options.value.floatLabel">
+      <input matInput placeholder="Simple placeholder" required>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
       </form>
 </div>
+</main>
