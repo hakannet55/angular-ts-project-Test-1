@@ -34,9 +34,6 @@ export class ListelemeComponent implements OnInit {
     this.updateSubscription = interval(1200)
       .subscribe((val) => {
         this.gtdServices.getDatas().subscribe(val => {
-          if (isArray(this.dataEkleme_heads) == false) {
-            this.dataEkleme_heads = this.obj_toArray(val[0]);
-          }
           if (this.araText == "") {
             //do not update ara
             this.data = val
@@ -44,7 +41,6 @@ export class ListelemeComponent implements OnInit {
 
         })
       });
-
   }
 
   obj_toArray(value) {
